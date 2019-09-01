@@ -20,6 +20,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var correctAnswerView: UIView!
     @IBOutlet weak var lblCorrectAnswer: UILabel!
     
+    @IBOutlet weak var collectionView1: UICollectionView!
+    @IBOutlet weak var collectionView2: UICollectionView!
+    
     @IBOutlet weak var lblPlayer1Name: UILabel!
     @IBOutlet weak var btnBuzzer1: UIButton!
     @IBOutlet weak var lblPlayer2Name: UILabel!
@@ -31,11 +34,11 @@ class GameViewController: UIViewController {
     private var player2 = Player(name: "Charmy Mehta")
     private var puzzleIndex: Int = 0
     private var answerIndex: Int = 0
-    private var buzzerPressed: Bool = false
     
     // MARK: - Life-cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView2.semanticContentAttribute = UISemanticContentAttribute.forceRightToLeft
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,9 +47,8 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - Action methods
-    @IBAction func buzzerAction(_ sender: Any) {
-        buzzerPressed = true
-        showPuzzleResult()
+    @IBAction func buzzerAction(_ sender: UIButton) {
+        showPuzzleResult(sender)
     }
     
     // MARK: - Game methods
@@ -72,6 +74,8 @@ class GameViewController: UIViewController {
                 self.lblCorrectAnswer.text = puzzle.word.spanish
                 self.loadAnswer(self.answerIndex)
             }
+        } else {
+            showGameResult()
         }
     }
     
@@ -92,6 +96,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    // MARK: - Animation methods
     private func fadeInAnswer(_ answer: Translation) {
         lblAnswer.text = answer.spanish
         answerView.layoutIfNeeded()
@@ -126,23 +131,68 @@ class GameViewController: UIViewController {
         })
     }
     
-    private func showPuzzleResult() {
+    // MARK: - Result methods
+    private func showPuzzleResult(_ sender: UIButton? = nil) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(showNextAnswer), object: nil)
-        if buzzerPressed {
+        if let button = sender {
             let puzzle = viewModel.puzzleAtIndex(puzzleIndex)
             let selectedAnswer = puzzle.answerAtIndex(answerIndex)
             lblPuzzleResult.alpha = 1.0
             if puzzle.word == selectedAnswer {
                 lblPuzzleResult.textColor = UIColor(named: "AppGreen")
                 lblPuzzleResult.text = "Correct"
+                if button == btnBuzzer1 {
+                    player1.correctAnswer()
+                    collectionView1.reloadData()
+                } else {
+                    player2.correctAnswer()
+                    collectionView2.reloadData()
+                }
             } else {
                 lblPuzzleResult.textColor = UIColor(named: "AppRed")
                 lblPuzzleResult.text = "Incorrect"
                 correctAnswerView.alpha = 1.0
             }
         } else {
+            lblPuzzleResult.textColor = UIColor(named: "AppRed")
+            lblPuzzleResult.text = "Times up!"
             correctAnswerView.alpha = 1.0
         }
         perform(#selector(showNextPuzzle), with: nil, afterDelay: 2.0)
+    }
+    
+    private func showGameResult() {
+        var winner: Player?
+        if player1.correctAnswers > player2.correctAnswers {
+            winner = player1
+        } else if player2.correctAnswers > player1.correctAnswers {
+            winner = player2
+        }
+        show(ResultViewController.storyboardInstance(winner), sender: nil)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension GameViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == collectionView1 {
+            return player1.correctAnswers
+        } else {
+            return player2.correctAnswers
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath)
+    }
+}
+
+extension GameViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.height, height: collectionView.frame.size.height)
     }
 }
