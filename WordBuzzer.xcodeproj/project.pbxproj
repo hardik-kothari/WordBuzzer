@@ -18,6 +18,7 @@
 		84D91F3D231B683700F2F8B4 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D91F3C231B683700F2F8B4 /* Translation.swift */; };
 		84D91F40231B68C100F2F8B4 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D91F3F231B68C100F2F8B4 /* Dictionary+Extensions.swift */; };
 		84D91F42231B693500F2F8B4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D91F41231B693500F2F8B4 /* Player.swift */; };
+		84D91F44231B6BB500F2F8B4 /* GameServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D91F43231B6BB500F2F8B4 /* GameServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		84D91F3C231B683700F2F8B4 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		84D91F3F231B68C100F2F8B4 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		84D91F41231B693500F2F8B4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		84D91F43231B6BB500F2F8B4 /* GameServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		84D91F2D231B67D700F2F8B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				84D91F43231B6BB500F2F8B4 /* GameServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D91F37231B67D700F2F8B4 /* ViewController.swift in Sources */,
+				84D91F44231B6BB500F2F8B4 /* GameServices.swift in Sources */,
 				84D91F35231B67D700F2F8B4 /* AppDelegate.swift in Sources */,
 				84D91F3D231B683700F2F8B4 /* Translation.swift in Sources */,
 				84D91F42231B693500F2F8B4 /* Player.swift in Sources */,
