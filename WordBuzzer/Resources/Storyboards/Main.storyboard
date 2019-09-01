@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Welcome Screen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="9" y="-243"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Screen-->
         <scene sceneID="wEd-a0-K0Y">
             <objects>
-                <viewController id="Van-90-zeV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="Van-90-zeV" userLabel="Game Screen" customClass="GameViewController" customModule="WordBuzzer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="he4-86-hhP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,11 +96,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvT-k5-av8">
-                                <rect key="frame" x="119" y="380" width="176" height="56"/>
+                                <rect key="frame" x="129.5" y="380" width="155" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gut, danke" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfS-y2-Sgb">
-                                        <rect key="frame" x="10" y="10" width="156" height="36"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <rect key="frame" x="10" y="10" width="135" height="31"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -114,7 +114,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWm-VW-hfJ">
-                                <rect key="frame" x="164.5" y="496" width="85.5" height="28"/>
+                                <rect key="frame" x="164.5" y="491" width="85.5" height="28"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.53159907504794512" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -141,6 +141,9 @@
                                                         <integer key="value" value="30"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buzzerAction:" destination="Van-90-zeV" eventType="touchUpInside" id="7lQ-sq-oad"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hardik Kothari" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEc-em-H5H">
                                                 <rect key="frame" x="101" y="30.5" width="91" height="41.5"/>
@@ -184,6 +187,9 @@
                                                         <integer key="value" value="30"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buzzerAction:" destination="Van-90-zeV" eventType="touchUpInside" id="aKI-JZ-Qiw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -231,6 +237,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AE2-TX-pF6"/>
                     </view>
+                    <connections>
+                        <outlet property="answerView" destination="LvT-k5-av8" id="vs5-7w-sdZ"/>
+                        <outlet property="btnBuzzer1" destination="AvW-ck-vIq" id="Evx-JQ-sts"/>
+                        <outlet property="btnBuzzer2" destination="dSr-d5-zeh" id="m7h-Vp-zxa"/>
+                        <outlet property="lblAnswer" destination="VfS-y2-Sgb" id="iVd-Jc-ruS"/>
+                        <outlet property="lblPlayer1Name" destination="NEc-em-H5H" id="fqY-06-laM"/>
+                        <outlet property="lblPlayer2Name" destination="4sP-QX-Yuk" id="D8G-8r-eCn"/>
+                        <outlet property="lblPuzzleNumber" destination="aaa-cx-H1d" id="vKv-cl-SAp"/>
+                        <outlet property="lblPuzzleResult" destination="CWm-VW-hfJ" id="1xB-mu-2NY"/>
+                        <outlet property="lblWord" destination="GnD-FI-eGg" id="U2f-8b-HpI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojW-nC-OUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

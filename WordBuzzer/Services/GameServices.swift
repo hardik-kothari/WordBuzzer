@@ -12,6 +12,8 @@ class GameServices: NSObject {
     
     static let shared = GameServices()
     
+    let numberOfPuzzles = 5
+    let numberOfOptionsPerPuzzle = 4
     var allTranslations: [Translation] = []
     
     private override init() {
