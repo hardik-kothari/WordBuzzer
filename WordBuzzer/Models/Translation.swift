@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Translation {
+struct Translation: Equatable {
     enum Keys: String, CodingKey {
         case english = "text_eng"
         case spanish = "text_spa"
@@ -20,5 +20,9 @@ struct Translation {
     init(json: Json) {
         english = json[Keys.english] ?? ""
         spanish = json[Keys.spanish] ?? ""
+    }
+    
+    static func == (lhs: Translation, rhs: Translation) -> Bool {
+        return lhs.english == rhs.english && lhs.spanish == rhs.spanish
     }
 }

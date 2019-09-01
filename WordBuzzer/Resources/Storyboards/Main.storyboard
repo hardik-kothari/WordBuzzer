@@ -95,7 +95,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvT-k5-av8">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvT-k5-av8">
                                 <rect key="frame" x="129.5" y="380" width="155" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gut, danke" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfS-y2-Sgb">
@@ -113,12 +113,39 @@
                                     <constraint firstAttribute="bottom" secondItem="VfS-y2-Sgb" secondAttribute="bottom" constant="10" id="RXS-O3-Afg"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWm-VW-hfJ">
-                                <rect key="frame" x="164.5" y="491" width="85.5" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWm-VW-hfJ">
+                                <rect key="frame" x="164.5" y="461" width="85.5" height="28"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.53159907504794512" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8A-f8-Qjv">
+                                <rect key="frame" x="37" y="505" width="340" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct answer:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuT-fl-xoT">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                        <color key="textColor" name="AppTheme"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good, thanks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eap-ll-xgn">
+                                        <rect key="frame" x="0.0" y="36" width="340" height="30"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kuT-fl-xoT" firstAttribute="leading" secondItem="S8A-f8-Qjv" secondAttribute="leading" id="GLe-Yl-2De"/>
+                                    <constraint firstItem="kuT-fl-xoT" firstAttribute="top" secondItem="S8A-f8-Qjv" secondAttribute="top" id="arN-6Z-89W"/>
+                                    <constraint firstItem="Eap-ll-xgn" firstAttribute="top" secondItem="kuT-fl-xoT" secondAttribute="bottom" constant="16" id="bXO-xS-Rrx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eap-ll-xgn" secondAttribute="trailing" id="buM-k6-joT"/>
+                                    <constraint firstAttribute="bottom" secondItem="Eap-ll-xgn" secondAttribute="bottom" id="iGO-52-h7p"/>
+                                    <constraint firstItem="Eap-ll-xgn" firstAttribute="leading" secondItem="S8A-f8-Qjv" secondAttribute="leading" id="iXR-x8-dnx"/>
+                                    <constraint firstAttribute="trailing" secondItem="kuT-fl-xoT" secondAttribute="trailing" id="idF-LV-d1C"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JcS-6Y-0SF">
                                 <rect key="frame" x="0.0" y="760" width="414" height="102"/>
                                 <subviews>
@@ -219,12 +246,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JcS-6Y-0SF" firstAttribute="leading" secondItem="AE2-TX-pF6" secondAttribute="leading" id="8xl-tH-TuN"/>
+                            <constraint firstItem="S8A-f8-Qjv" firstAttribute="leading" secondItem="AE2-TX-pF6" secondAttribute="leading" constant="37" id="Cgq-ok-UDI"/>
                             <constraint firstItem="AE2-TX-pF6" firstAttribute="bottom" secondItem="JcS-6Y-0SF" secondAttribute="bottom" id="FDf-va-ruA"/>
+                            <constraint firstItem="S8A-f8-Qjv" firstAttribute="top" secondItem="CWm-VW-hfJ" secondAttribute="bottom" constant="16" id="Gof-B1-NiG"/>
                             <constraint firstItem="GnD-FI-eGg" firstAttribute="top" secondItem="sHq-V0-nSk" secondAttribute="bottom" constant="100" id="HNH-pg-5sV"/>
                             <constraint firstAttribute="trailing" secondItem="sHq-V0-nSk" secondAttribute="trailing" constant="37" id="KD8-Wa-Fva"/>
                             <constraint firstItem="sHq-V0-nSk" firstAttribute="leading" secondItem="AE2-TX-pF6" secondAttribute="leading" constant="37" id="Kv5-gd-bpd"/>
                             <constraint firstItem="AE2-TX-pF6" firstAttribute="trailing" secondItem="GnD-FI-eGg" secondAttribute="trailing" constant="37" id="NU8-9l-1Lw"/>
                             <constraint firstItem="sHq-V0-nSk" firstAttribute="top" secondItem="aaa-cx-H1d" secondAttribute="bottom" constant="20" id="Ogb-ll-ea0"/>
+                            <constraint firstItem="AE2-TX-pF6" firstAttribute="trailing" secondItem="S8A-f8-Qjv" secondAttribute="trailing" constant="37" id="TnJ-ki-Jh8"/>
                             <constraint firstItem="LvT-k5-av8" firstAttribute="centerX" secondItem="he4-86-hhP" secondAttribute="centerX" id="UYJ-9N-Dtg"/>
                             <constraint firstItem="aaa-cx-H1d" firstAttribute="top" secondItem="AE2-TX-pF6" secondAttribute="top" constant="70" id="Xqi-sA-q8b"/>
                             <constraint firstItem="LvT-k5-av8" firstAttribute="top" secondItem="GnD-FI-eGg" secondAttribute="bottom" constant="60" id="gLc-0q-FfG"/>
@@ -233,15 +263,18 @@
                             <constraint firstItem="AE2-TX-pF6" firstAttribute="trailing" secondItem="JcS-6Y-0SF" secondAttribute="trailing" id="ulA-3a-QKL"/>
                             <constraint firstItem="LvT-k5-av8" firstAttribute="width" relation="lessThanOrEqual" secondItem="he4-86-hhP" secondAttribute="width" multiplier="0.9" id="v7l-qc-kdC"/>
                             <constraint firstItem="GnD-FI-eGg" firstAttribute="leading" secondItem="AE2-TX-pF6" secondAttribute="leading" constant="37" id="wsp-0G-Bca"/>
-                            <constraint firstItem="CWm-VW-hfJ" firstAttribute="top" secondItem="LvT-k5-av8" secondAttribute="bottom" constant="60" id="ydQ-6m-tke"/>
+                            <constraint firstItem="CWm-VW-hfJ" firstAttribute="top" secondItem="LvT-k5-av8" secondAttribute="bottom" constant="30" id="ydQ-6m-tke"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AE2-TX-pF6"/>
                     </view>
                     <connections>
                         <outlet property="answerView" destination="LvT-k5-av8" id="vs5-7w-sdZ"/>
+                        <outlet property="answerViewCenterConstraint" destination="UYJ-9N-Dtg" id="EAC-pe-y9i"/>
                         <outlet property="btnBuzzer1" destination="AvW-ck-vIq" id="Evx-JQ-sts"/>
                         <outlet property="btnBuzzer2" destination="dSr-d5-zeh" id="m7h-Vp-zxa"/>
+                        <outlet property="correctAnswerView" destination="S8A-f8-Qjv" id="VuE-9v-1Jc"/>
                         <outlet property="lblAnswer" destination="VfS-y2-Sgb" id="iVd-Jc-ruS"/>
+                        <outlet property="lblCorrectAnswer" destination="Eap-ll-xgn" id="HkS-uB-FdJ"/>
                         <outlet property="lblPlayer1Name" destination="NEc-em-H5H" id="fqY-06-laM"/>
                         <outlet property="lblPlayer2Name" destination="4sP-QX-Yuk" id="D8G-8r-eCn"/>
                         <outlet property="lblPuzzleNumber" destination="aaa-cx-H1d" id="vKv-cl-SAp"/>
